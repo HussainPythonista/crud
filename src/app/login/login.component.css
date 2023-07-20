@@ -1,0 +1,52 @@
+/* src/app/login/login.component.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(246, 119, 246);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: #fff;
+  border: 3px solid #ccc;
+  border-radius: 2rem;
+  padding: 20px;
+  box-shadow: 0 2px 50px rgba(0, 0, 0, 0.1);
+  /* Increased the width of the container */
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%; /* Make the input fields take up the entire width of their container */
+  padding: 8px;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+}
+
+.form-group input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  text-shadow: #ccc;
+}
+
+.form-group input[type="submit"]:hover {
+  background-color:purple;
+}
