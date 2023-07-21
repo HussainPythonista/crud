@@ -1,12 +1,22 @@
-import { Injectable } from '@angular/core';
+import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
 
-@Injectable({
-  providedIn: 'root'
+@Component({
+  selector: 'app-list-students',
+  templateUrl: './list-students.component.html',
+  styleUrls: ['./list-students.component.css']
 })
-export class AuthService {
-  isLoggedIn: boolean = false;
+export class ListStudentsComponent {
+  student_details = [
+    // Your student details here
+  ];
 
-  updateLoggedInStatus(value: boolean) {
-    this.isLoggedIn = value;
+  isLoggedIn: boolean = false; // Flag to check if the user is logged in
+
+  constructor(private authService: AuthService) {
+    // Subscribe to authService.isLoggedIn changes
+    this.authService.isLoggedIn$.subscribe((loggedIn: boolean) => {
+      this.isLoggedIn = loggedIn;
+    });
   }
 }
