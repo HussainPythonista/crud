@@ -1,2 +1,7 @@
 
-<app-login></app-login>
+  
+  <!-- Use *ngIf to conditionally render the LoginComponent or ListStudentsComponent -->
+  <app-login *ngIf="!isLoggedIn"></app-login>
+  <app-list-students *ngIf="isLoggedIn"></app-list-students>
+  <router-outlet></router-outlet>
+ 
