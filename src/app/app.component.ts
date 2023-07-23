@@ -7,10 +7,13 @@ import { AuthService } from './auth.service'; // Update the path to the AuthServ
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private authService: AuthService) {}
+  isLoggedIn: boolean = false; // Flag to check if the user is logged in
 
-  get isLoggedIn(): boolean {
-    return this.authService.isLoggedIn;
+  constructor(private authService: AuthService) {
+    // Subscribe to authService.isLoggedIn$ changes
+    this.authService.isLoggedIn$.subscribe((loggedIn: boolean) => {
+      this.isLoggedIn = loggedIn;
+    });
   }
 
   // ... Other component logic ...

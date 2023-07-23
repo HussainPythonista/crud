@@ -1,22 +1,16 @@
-import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
-@Component({
-  selector: 'app-list-students',
-  templateUrl: './list-students.component.html',
-  styleUrls: ['./list-students.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class ListStudentsComponent {
-  student_details = [
-    // Your student details here
-  ];
+export class AuthService {
+  private isLoggedInSubject = new BehaviorSubject<boolean>(false);
+  isLoggedIn$ = this.isLoggedInSubject.asObservable();
 
-  isLoggedIn: boolean = false; // Flag to check if the user is logged in
+  constructor() {}
 
-  constructor(private authService: AuthService) {
-    // Subscribe to authService.isLoggedIn changes
-    this.authService.isLoggedIn$.subscribe((loggedIn: boolean) => {
-      this.isLoggedIn = loggedIn;
-    });
+  updateLoggedInStatus(value: boolean) {
+    this.isLoggedInSubject.next(value);
   }
 }
